@@ -8,3 +8,4 @@ set showcmd
 set ruler
 map <F2> Go
 filetype plugin indent on
+autocmd FileType text setlocal textwidth=78
