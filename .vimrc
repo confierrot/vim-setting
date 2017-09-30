@@ -15,7 +15,7 @@ Bundle 'majutsushi/tagbar'
 let g:tagbar_ctags_bin='ctags'            "ctags程序的路径
 let g:tagbar_width=30                    "窗口宽度的设置
 map <F2> :Tagbar<CR>
-autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()     
+"autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()     
 "如果是c语言的程序的话，tagbar自动开启
 
 Bundle 'scrooloose/nerdtree'
@@ -26,6 +26,7 @@ nmap <F1> :NERDTreeToggle<CR>
 ""状态栏插件
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
+let g:airline_theme='fairyfloss'
 set laststatus=2
 
 let g:airline_powerline_fonts=1
@@ -39,10 +40,21 @@ let g:airline#extension#tabline#show_splits=1
 let g:airline#extension#tabline#fnamemod=':t'
 
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap ,1 <Plug>AirlineSelectTab1
+nmap ,2 <Plug>AirlineSelectTab2
+nmap ,3 <Plug>AirlineSelectTab3
+nmap ,4 <Plug>AirlineSelectTab4
+nmap ,5 <Plug>AirlineSelectTab5
+nmap ,6 <Plug>AirlineSelectTab6
+nmap ,7 <Plug>AirlineSelectTab7
+nmap ,8 <Plug>AirlineSelectTab8
+nmap ,9 <Plug>AirlineSelectTab9
+
 nmap _ <Plug>AirlineSelectPrevTab
 nmap + <Plug>AirlineSelectNextTab
 
-
+"一款皮肤插件
+Plugin 'flazz/vim-colorschemes'
 "自动补全插件
 Bundle 'Shougo/neocomplete'
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -140,7 +152,7 @@ set showcmd
 set ruler
 autocmd FileType text setlocal textwidth=78
 syntax on
-set autowrite
+"set autowrite
 set writebackup
 set backupext=.bak
 set shiftwidth=4
@@ -163,8 +175,9 @@ set linebreak
 "set virtualedit=all
 
 set foldcolumn=1 
-autocmd BufReadPost *.[ch] set foldmethod=indent
-autocmd BufReadPost *.py set foldmethod=indent
+nmap <F10> :set foldmethod=syntax<CR>
+"autocmd BufReadPost *.[ch] set foldmethod=syntax
+"autocmd BufReadPost *.py set foldmethod=indent
 "cscope 相关配置 
 if has("cscope")
 	set csprg=/usr/bin/cscope
@@ -205,7 +218,7 @@ nmap <F6>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 " the new window.
                                                                     
 nmap <F7>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <F5>  :scs find g <C-R>=expand("<cword>")<CR><CR>:set cursorline<CR>zR
+nmap <F5>  :scs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <F7>c :scs find c <C-R>=expand("<cword>")<CR><CR>
 nmap <F7>t :scs find t <C-R>=expand("<cword>")<CR><CR>
 nmap <F7>e :scs find e <C-R>=expand("<cword>")<CR><CR>
@@ -239,4 +252,8 @@ nmap <F3> :Bclose<CR>
 "autocmd BufReadPost *.[ch] normal '0
 "set cursorline
 "highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green
+colorscheme space-vim-dark
+set cursorline
 
+autocmd QuitPre *.[ch]  NERDTreeClose|TagbarClose
+autocmd QuitPre *.[ch]  mks! .last_session.vim
