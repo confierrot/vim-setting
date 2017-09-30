@@ -26,7 +26,7 @@ nmap <F1> :NERDTreeToggle<CR>
 ""状态栏插件
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-let g:airline_theme='fairyfloss'
+let g:airline_theme='hybrid'
 set laststatus=2
 
 let g:airline_powerline_fonts=1
