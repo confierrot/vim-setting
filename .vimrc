@@ -26,7 +26,7 @@ nmap <F1> :NERDTreeToggle<CR>
 ""状态栏插件
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
-let g:airline_theme='hybrid'
+let g:airline_theme='kolor'
 set laststatus=2
 
 let g:airline_powerline_fonts=1
@@ -160,8 +160,8 @@ set textwidth=72
 source $VIMRUNTIME/ftplugin/man.vim
 set fileformats=unix,dos
 set showmatch
-iabbrev #b /********************************************************
-iabbrev #e *****************************************************/
+iabbrev #s /*---------------------------------------------------------------------------/
+iabbrev #e /---------------------------------------------------------------------------*/
 " 用空格代替制表符
 set expandtab
 " 统一缩进为4
