@@ -10,6 +10,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+"------------tagbar插件-------------
+"按F2开/关右侧tagbar窗口
 Bundle 'majutsushi/tagbar'
 "nmap <Leader>tb :TagbarToggle<CR>        "快捷键设置
 let g:tagbar_ctags_bin='ctags'            "ctags程序的路径
@@ -18,12 +20,15 @@ map <F2> :Tagbar<CR>
 "autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()     
 "如果是c语言的程序的话，tagbar自动开启
 
+"---------------目录树插件-----------------
+"按F1开/关左侧目录树窗口
 Bundle 'scrooloose/nerdtree'
 let NERDTreeWinPos='left'
 let NERDTreeWinSize=25
 nmap <F1> :NERDTreeToggle<CR>
 
-""状态栏插件
+"--------------状态栏插件-----------------
+"+/_
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 let g:airline_theme='kolor'
@@ -53,9 +58,11 @@ nmap ,9 <Plug>AirlineSelectTab9
 nmap _ <Plug>AirlineSelectPrevTab
 nmap + <Plug>AirlineSelectNextTab
 
-"一款皮肤插件
+"------------皮肤包----------------
 Plugin 'flazz/vim-colorschemes'
-"自动补全插件
+
+"------------自动补全插件-------------
+"按tab键在预选项中选择
 Bundle 'Shougo/neocomplete'
 "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -175,10 +182,11 @@ set linebreak
 "set virtualedit=all
 
 set foldcolumn=1 
+
 nmap <F10> :set foldmethod=syntax<CR>
 "autocmd BufReadPost *.[ch] set foldmethod=syntax
 "autocmd BufReadPost *.py set foldmethod=indent
-"cscope 相关配置 
+"---------------cscope 相关配置----------------------
 if has("cscope")
 	set csprg=/usr/bin/cscope
 	set csto=0
@@ -241,8 +249,9 @@ nmap <F8>a :vert scs find a <C-R>=expand("<cword>")<CR><CR>
 nmap <F4> :close<CR>
 nmap <Up> gk
 nmap <Down> gj
-
-inoremap ( ()<Left>
+"自动补全括号和花括号
+inoremap ( ()<Left>  
+inoremap [ []<Left>
 inoremap { {}<Esc>O
 nmap <Tab>  <C-W>w
 nmap <F9> :nohlsearch<Enter>
@@ -253,7 +262,9 @@ nmap <F3> :Bclose<CR>
 "set cursorline
 "highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green
 colorscheme space-vim-dark
+"set background=dark
+"colorscheme solarized
 set cursorline
-
+"退出时自动保存视图
 autocmd QuitPre *.[ch]  NERDTreeClose|TagbarClose
 autocmd QuitPre *.[ch]  mks! .last_session.vim
