@@ -1,3 +1,8 @@
+" Dependency
+"   use 'junegunn/vim-plug/' to manage plugin
+"   'confierrot/GUN-global_vim_support' -> GNU global
+"   'Tagbar' -> ctags
+"   'Yggdroot/LeaderF' -> python
 " 判断操纵系统类型
 let g:iswindows = 0
 let g:islinux = 0
@@ -55,7 +60,6 @@ map <F2> :Tagbar<CR>
 "GNU global插件支持，安装该软件并在目录下执行gtags 生成tags文件   
 ":Gtags [-rf] pattern
 "
-
 Plug 'confierrot/GUN-global_vim_support'
 let g:Gtags_Auto_Update = 1
 let g:Gtags_No_Auto_Jump = 1
