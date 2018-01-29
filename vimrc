@@ -65,6 +65,7 @@ if(g:usecscope == 0)
 Plug 'confierrot/GUN-global_vim_support'
     let g:Gtags_Auto_Update = 1
     let g:Gtags_No_Auto_Jump = 1
+    let g:Gtags_Close_When_Single = 1
     nmap <F5> :GtagsCursor<CR>
     nmap <F8> :Gozilla<CR>
     if findfile("GTAGS") == "GTAGS"
