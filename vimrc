@@ -84,7 +84,7 @@ else
          endif
      endif
 endif
-"快关quickfix窗口
+"开关quickfix窗口
 nmap <F6> :copen<CR>  
 nmap <F7> :cclose<CR> 
 "s: Find this C symbol
@@ -214,6 +214,13 @@ else
     Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 endif
 
+"代码缩进提醒
+" 按<F12>切换提醒
+Plug 'Yggdroot/indentLine'
+let g:indentLine_char = '|'
+nmap <F12> :IndentLinesToggle<CR>
+
+
 call plug#end()
 
 "================================插件管理器到此结束====================================
@@ -284,7 +291,7 @@ else
 endif
 
 "退出时自动保存视图
-autocmd QuitPre *.[ch]  NERDTreeClose|TagbarClose
+autocmd QuitPre *.[ch]  NERDTreeClose|TagbarClose|MBECloseAll
 autocmd QuitPre *.[ch]  mks! .last_session.vim
 
 iabbrev #s /*---------------------------------------------------------------------------/
