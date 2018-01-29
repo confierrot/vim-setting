@@ -58,23 +58,21 @@ Plug 'majutsushi/tagbar'
 let g:tagbar_width=30                    "窗口宽度的设置
 map <F2> :Tagbar<CR>
 
+" tags设置
+if(g:usecscope == 0)
 "GNU global插件支持，安装该软件并在目录下执行gtags 生成tags文件   
 ":Gtags [-rf] pattern
-"
-if(g:usecscope == 0)
 Plug 'confierrot/GUN-global_vim_support'
     let g:Gtags_Auto_Update = 1
     let g:Gtags_No_Auto_Jump = 1
     nmap <F5> :GtagsCursor<CR>
-    nmap <F6> :copen<CR>  
-    nmap <F7> :cclose<CR> 
     nmap <F8> :Gozilla<CR>
     if findfile("GTAGS") == "GTAGS"
         autocmd VimEnter  *  GtagsCscope              
     endif
 else
      if has("cscope")
-         "设定可以使用 quickfix 窗口来查看 cscope 结果 使用 :cw
+         "设定可以使用 quickfix 窗口来查看 cscope 结果 
          set cscopequickfix=s-,c-,d-,i-,t-,e-
          "使支持用 Ctrl+] 和 Ctrl+t 快捷键在代码间跳转
          set cscopetag
@@ -85,7 +83,9 @@ else
          endif
      endif
 endif
-
+"快关quickfix窗口
+nmap <F6> :copen<CR>  
+nmap <F7> :cclose<CR> 
 "s: Find this C symbol
 "g: Find this definition
 "c: Find functions calling this function
