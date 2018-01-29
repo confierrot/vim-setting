@@ -110,11 +110,13 @@ Plug 'vim-scripts/SuperTab'
 let g:SuperTabRetainCompletionType=2
 
 "高亮标签
+" mx           Toggle mark 'x' and display it in the leftmost column
+" dmx          Remove mark 'x' where x is a-zA-
 " m<Space>     : Delete all marks
 " m,           : Place the next available mark
 " ]`           : Jump to next mark
 " [`           : Jump to prev mark
-Plug 'vim-scripts/vim-signature' 
+Plug 'kshenoy/vim-signature' 
 
 "状态栏插件
 if(g:islinux)
