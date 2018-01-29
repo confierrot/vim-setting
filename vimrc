@@ -72,6 +72,18 @@ Plug 'confierrot/GUN-global_vim_support'
     if findfile("GTAGS") == "GTAGS"
         autocmd VimEnter  *  GtagsCscope              
     endif
+else
+     if has("cscope")
+         "设定可以使用 quickfix 窗口来查看 cscope 结果 使用 :cw
+         set cscopequickfix=s-,c-,d-,i-,t-,e-
+         "使支持用 Ctrl+] 和 Ctrl+t 快捷键在代码间跳转
+         set cscopetag
+         "如果你想反向搜索顺序设置为1
+         set csto=0
+         if filereadable("cscope.out") 
+             cs add cscope.out
+         endif
+     endif
 endif
 
 "s: Find this C symbol
