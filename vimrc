@@ -7,6 +7,7 @@
 let g:iswindows = 0
 let g:islinux = 0
 let g:plugPATH = 0
+let g:usecscope = 0  "use cscope or GNU global
 if(has("win32") || has("win64"))
     let g:iswindows = 1
 else
@@ -60,13 +61,19 @@ map <F2> :Tagbar<CR>
 "GNU global插件支持，安装该软件并在目录下执行gtags 生成tags文件   
 ":Gtags [-rf] pattern
 "
+if(g:usecscope == 0)
 Plug 'confierrot/GUN-global_vim_support'
-let g:Gtags_Auto_Update = 1
-let g:Gtags_No_Auto_Jump = 1
-nmap <F5> :GtagsCursor<CR>
-nmap <F6> :copen<CR>  
-nmap <F7> :cclose<CR> 
-nmap <F8> :Gozilla<CR>
+    let g:Gtags_Auto_Update = 1
+    let g:Gtags_No_Auto_Jump = 1
+    nmap <F5> :GtagsCursor<CR>
+    nmap <F6> :copen<CR>  
+    nmap <F7> :cclose<CR> 
+    nmap <F8> :Gozilla<CR>
+    if findfile("GTAGS") == "GTAGS"
+        autocmd VimEnter  *  GtagsCscope              
+    endif
+endif
+
 "s: Find this C symbol
 "g: Find this definition
 "c: Find functions calling this function
@@ -100,9 +107,6 @@ nmap <Leader>T :vert scs find t <C-R>=expand("<cword>")<CR><CR>
 nmap <Leader>E :vert scs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <Leader>F :vert scs find f <C-R>=expand("<cword>")<CR><CR>
 nmap <Leader>I :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-
-if findfile("GTAGS") == "GTAGS"
-autocmd VimEnter  *  GtagsCscope              
 
 "自动补全插件
 "按tab键补全
@@ -193,7 +197,6 @@ Plug  'lfv89/vim-interestingwords'
 "<C-S>	select multiple files
 Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
 
-endif
 
 
 call plug#end()
