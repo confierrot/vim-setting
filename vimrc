@@ -195,9 +195,11 @@ Plug  'lfv89/vim-interestingwords'
 "<C-J>(<Down>)	move the cursor downward in the result window
 "<C-K>(<Up>)	move the cursor upward in the result window
 "<C-S>	select multiple files
-Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
-
-
+if(iswindows)
+    Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
+else
+    Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+endif
 
 call plug#end()
 
