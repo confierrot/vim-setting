@@ -277,7 +277,11 @@ nmap <F9>  :set foldmethod=marker<CR>
 "inoremap { {}<Esc>O
 nmap <Tab>  <C-W>
 
-colorscheme space-vim-dark
+if(iswindows)
+    colorschemes desert
+else
+    colorscheme space-vim-dark
+endif
 
 "退出时自动保存视图
 autocmd QuitPre *.[ch]  NERDTreeClose|TagbarClose
