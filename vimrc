@@ -214,6 +214,10 @@ else
     Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 endif
 
+nmap  tk  :LeaderfFile<CR> 
+nmap  tl  :LeaderfTag<CR>
+
+
 "代码缩进提醒
 " 按<F12>切换提醒
 Plug 'Yggdroot/indentLine'
