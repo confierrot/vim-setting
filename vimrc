@@ -285,11 +285,12 @@ nmap <F9>  :set foldmethod=marker<CR>
 "自动补全括号和花括号
 "inoremap ( ()<Left>  
 "inoremap [ []<Left>
-"inoremap { {}<Esc>O
+"inoremap { {
+}<Esc>O
 nmap <Tab>  <C-W>
 
 if(iswindows)
-    colorschemes desert
+    colorscheme desert
 else
     colorscheme space-vim-dark
 endif
@@ -300,6 +301,7 @@ autocmd QuitPre *.[ch]  mks! .last_session.vim
 
 iabbrev #s /*---------------------------------------------------------------------------/
 iabbrev #e /---------------------------------------------------------------------------*/
-iabbrev m()  int main(){return 0;<Esc>O<Esc>kk
+iabbrev m()  int main()
+{return 0;<Esc>O<Esc>kk
 
 
