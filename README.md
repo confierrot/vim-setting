@@ -9,3 +9,5 @@ Dependencies
    
    'Yggdroot/LeaderF' -> python
    
+mov vimrc to ~/_vimrc when in windows
+   
