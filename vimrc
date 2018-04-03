@@ -242,6 +242,9 @@ let g:DoxygenToolkit_authorTag = "@author: "
 let g:DoxygenToolkit_versionTag = "@version: "
 let g:DoxygenToolkit_blockTag = "@name: "
 let g:DoxygenToolkit_classTag = "@class "
+let g:DoxygenToolkit_startCommentBlock = "/* "
+let g:DoxygenToolkit_endCommentBlock = "*/"
+let g:DoxygenToolkit_dateTag = "@date: "
 call plug#end()
 
 "================================插件管理器到此结束====================================
