@@ -224,6 +224,19 @@ Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 nmap <F12> :IndentLinesToggle<CR>
 
+"注释插件
+"添加license    :Doxlic
+"添加author     :DoxAuthor
+"添加函数注释   光标置于函数上，再:Dox
+"添加#ifdef模块 :DoxUndoc(DEBUG)
+Plug 'vim-scripts/DoxygenToolkit.vim'
+let g:DoxygenToolkit_authorName="Confit"
+let g:DoxygenToolkit_endCommentTag = "/---------------------------------------------------------------------------*/"
+let g:DoxygenToolkit_startCommentTag = "/*---------------------------------------------------------------------------/"
+let g:DoxygenToolkit_briefTag_funcName = "yes"
+let g:DoxygenToolkit_briefTag_pre = "@brief: "
+let g:DoxygenToolkit_paramTag_pre = "@param: "
+let g:DoxygenToolkit_returnTag = "@return: "
 
 call plug#end()
 
@@ -285,8 +298,7 @@ nmap <F9>  :set foldmethod=marker<CR>
 "自动补全括号和花括号
 "inoremap ( ()<Left>  
 "inoremap [ []<Left>
-"inoremap { {
-}<Esc>O
+"inoremap { {^M}<Esc>O
 nmap <Tab>  <C-W>
 
 if(iswindows)
@@ -301,7 +313,6 @@ autocmd QuitPre *.[ch]  mks! .last_session.vim
 
 iabbrev #s /*---------------------------------------------------------------------------/
 iabbrev #e /---------------------------------------------------------------------------*/
-iabbrev m()  int main()
-{return 0;<Esc>O<Esc>kk
+iabbrev m()  int main()^M{return 0;<Esc>O<Esc>kk
 
 
